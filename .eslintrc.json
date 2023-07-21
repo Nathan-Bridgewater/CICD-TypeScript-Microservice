@@ -13,5 +13,6 @@
         "tsconfigRootDir": "."
     },
     "rules": {
+        "eslint@typescript-eslint/consistent-type-assertions": 0
     }
 }
