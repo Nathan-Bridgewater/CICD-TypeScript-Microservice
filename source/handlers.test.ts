@@ -1,8 +1,9 @@
-import { helloWorldHandler } from './handlers'
+import { helloWorldHandler, returnGreetingHandler } from './handlers'
 import type { Request, Response } from 'express'
 
 describe('Test HTTP handle functions', () => {
-  test('helloWorldHandler sends a "Hello World!" response', () => {
+  test('helloWorldHandler sends a "Hello World!" response \
+  and a 200 status code', () => {
     // Arrange
     const mockSendFn = jest.fn()
     const mockStatusFn = jest.fn()
@@ -18,11 +19,23 @@ describe('Test HTTP handle functions', () => {
     expect(mockSendFn.mock.calls[0][0]).toBe('Hello World!')
     expect(mockStatusFn.mock.calls[0][0]).toBe(200)
   })
-  test('Test returnGreetingHandler', () => {
+  test('returnGreetingHandler sends a personalised greeting \
+  and a 200 status code when receiving a correct req object', () => {
     // Arrange
-
+    const mockSendFn = jest.fn()
+    const mockStatusFn = jest.fn()
+    const req: Partial<Request> = {
+      query: { greeting: 'Hello', name: 'Nathan' }
+    }
+    const res: Partial<Response> = {
+      send: mockSendFn,
+      status: mockStatusFn
+    }
     // Act
+    returnGreetingHandler(req as Request, res as Response)
     // Assert
+    expect(mockSendFn.mock.calls[0][0]).toBe('Hello Nathan')
+    expect(mockStatusFn.mock.calls[0][0]).toBe(200)
   })
 })
 
