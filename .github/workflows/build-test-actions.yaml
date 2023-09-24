@@ -6,23 +6,18 @@ on:
     branches:
       - 'main'
   
-  jobs:
-    build-test:
-      runs-on: ubuntu-latest
-
-      steps:
-        - uses: actions/checkout@v4
-
-        - name: Use Node JS
-          uses: actions/setup-node@v3
-          with:
-            node-version: '14'
-
-        - name: Install dependancies
-          run: npm ci
-
-        - name: Build code
-          run: npm run build
-
-        - name: Run unit tests
-          run: npm run test
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node JS
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - name: Install dependancies
+        run: npm ci
+      - name: Build code
+        run: npm run build
+      - name: Run unit tests
+        run: npm run test
