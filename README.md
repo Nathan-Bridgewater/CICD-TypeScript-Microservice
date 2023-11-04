@@ -6,5 +6,5 @@ as part of a small project to explore a few different technologies
 - Typescript microservice 
 - Unit testing with Jest
 - CI-CD with GitHub Actions
-- Lambda bundling with esbuild
+- AWS Fargate
 - Continuous Deployment with CDK
