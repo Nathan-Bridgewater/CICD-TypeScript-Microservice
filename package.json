@@ -1,4 +1,6 @@
 {
+  "name": "typescript-express-server",
+  "version": "1.0.0",
   "bin": {
     "cdk": "cdk/bin/cdk.js"
   },
