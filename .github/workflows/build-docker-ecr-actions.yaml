@@ -1,5 +1,5 @@
 name: build-docker-ecr
-run-name: ${{ github.actor }} is running the build-test workflow
+run-name: ${{ github.actor }} is running the build-docker-ecr workflow
 on:
   push:
     branches:
